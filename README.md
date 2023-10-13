@@ -40,7 +40,7 @@
 ## 贡献
 
 - [YuhangQ](https://github.com/YuhangQ)
-- [Elaina](https://github.com/userElaina)
+- [userElaina](https://github.com/userElaina)
 - [TechCiel](https://github.com/TechCiel)
 - [Magi](https://github.com/Magikaaarp)
 - [OneCheck](https://github.com/zwh2119)
