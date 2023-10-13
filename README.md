@@ -30,7 +30,7 @@
 </p>
 
 
-样例 [图片1](demo/demo1.png) [图片2](demo/demo2.png) [图片3](demo/demo3.png) [PDF](main.pdf)
+样例 [[图片1](demo/demo1.png)] [[图片2](demo/demo2.png)] [[图片3](demo/demo3.png)] [[PDF](main.pdf)]
 
 ## 致谢
 
