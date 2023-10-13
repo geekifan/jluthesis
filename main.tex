@@ -1,0 +1,53 @@
+\documentclass{jluthesis}
+\usepackage{fancyvrb}
+\usepackage{booktabs, multirow, longtable, makecell, subfig}
+\RecustomVerbatimEnvironment{Verbatim}{Verbatim}{frame = single, tabsize = 4, fontsize=\footnotesize}
+
+\begin{document}
+
+\let\cleardoublepage\clearpage
+
+% 封面
+\makecover
+
+
+% 承诺书
+\commitment
+\thispagestyle{style@empty}
+% 中文摘要
+\input{data/cabstract}
+\thispagestyle{style@empty}
+
+% 英文摘要
+\input{data/eabstract}
+\thispagestyle{style@empty}
+
+% 目录
+\newpage
+\pagenumbering{gobble} 
+{
+    \pagestyle{style@empty}
+    \tableofcontents
+    \clearpage
+}
+
+% 正文
+\pagenumbering{arabic} 
+\setcounter{page}{1}
+\pagestyle{style@normal}
+
+
+\input{data/chapter01.tex}
+
+\input{data/chapter02.tex}
+
+\input{data/chapter03.tex}
+
+\input{data/chapter04.tex}
+
+% 参考文献
+\input{data/reference.tex}
+% 致谢
+\input{data/acknowledgement.tex}
+
+\end{document}

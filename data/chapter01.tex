@@ -1,0 +1,228 @@
+\chapter{引论}
+\label{chap:introduction}
+
+本章为吉林大学本科生毕业论文 \LaTeX 模板的示例文档\footnote{本模板适配了吉林大学计算机科学
+与技术学院的毕业论文格式，参考了《附件Z-3：学院本科毕业论文（设计）撰写参考模板》中的格式要求，
+适配作者为geekifan，参见 GitHub 主页\url{https://github.com/geekifan}。}，对写作过程
+中常见用法和问题进行介绍说明。第一章的内容参考了北京大学硕士学位论文模板\footnote{\url{https://github.com/iofu728/pkuthss}}
+的相关章节。
+
+\section{封面及配置文件相关}
+\label{sec:cover-pkuthssinfo}
+
+本模板使用 \verb|jluthesis.cfg| 配置文件对封面的相关信息进行设置。示例配置如下：
+
+\begin{Verbatim}
+    \ProvidesFile{jluthesis.cfg}
+    \def\cover@thesis{毕业设计（论文）}
+    \def\cover@ctitlef{第一行}
+    \def\cover@ctitles{第二行}
+    \def\cover@ctitle{中文完整题目}
+    \def\cover@etitlef{The first}
+    \def\cover@etitles{The second}
+    \def\cover@etitle{English Title}
+    \def\cover@school{某某学院}
+    \def\cover@major{某某专业}
+    \def\cover@author{张三}
+    \def\cover@eauthor{Zhang San}
+    \def\cover@studentid{11111111}
+    \def\cover@mentor{李四}
+    \def\cover@ementor{Li Si}
+    \def\cover@time{2023 年 6 月}
+    \def\abstract@cabstract{摘\hspace{1em}要}
+    \def\abstract@eabstract{Abstract}
+    \def\abstract@ckeywords{关键词：}
+    \def\abstract@ekeywords{Keywords:}
+    \def\commitment@title{吉林大学学士学位论文（设计）承诺书}
+    \def\commitment@content{本人郑重承诺：所呈交的学士学位毕业论文（设计），
+    是本人在指导教师的指导下，独立进行实验、设计、调研等工作基础上取得的成果。
+    除文中已经注明引用的内容外，本论文（设计）不包含任何其他个人或集体
+    已经发表或撰写的作品成果。对本人实验或设计中做出重要贡献的个人或集体，
+    均已在文中以明确的方式注明。本人完全意识到本承诺书的法律结果由本人承担。}
+    \def\commitment@sign{承诺人：}
+    \def\commitment@time{2023年5月29日}
+    \endinput
+\end{Verbatim}
+
+
+\section{字体设定}
+\label{sec:fontset}
+
+本模板的默认中文字体为宋体，英文字体为 Times New Roman。本项目不包含任何所需的字体文件。如需使用 Overleaf，请自行在项目中上传 Overleaf 缺失的宋体文件，然后在 \verb|jluthesis.cls| 文件中将 
+\begin{Verbatim}
+\setCJKfamilyfont{cusong}[AutoFakeBold = {2.17}]{SimSun}
+\end{Verbatim}
+修改为
+\begin{Verbatim}
+\setCJKfamilyfont{cusong}[AutoFakeBold = {2.17}]{/path/to/simsun.ttf}
+\end{Verbatim}
+
+\section{承诺书}
+\label{sec:commitment}
+
+本模板自带承诺书。请核对该模板使用的承诺书与学院使用的承诺书是否一致。如需去除承诺书一页。请将\verb|main.tex|中的\verb|\commitment|注释或删除。
+
+\section{摘要部分}
+\label{sec:abstract}
+
+请在\verb|cabstract.tex|中书写中文摘要，在\verb|eabstract.tex|中书写英文摘要。
+
+
+\section{图表相关}
+\label{sec:table-figure}
+
+\subsection{表格样例}
+\label{sec:table-example}
+
+一般学术论文使用三线表(如表~\ref{tab:example-table-basic})，需要依赖宏包\verb|booktabs|，使用\verb|\toprule|，\verb|\midrule|，\verb|\bottomrule|控制三线。
+此外表序和表名位于表格的上方。
+如果需要对表格内进行脚注，可通过\texttt{minipage}中嵌套\texttt{tabular}来实现，具体可参考Stack Overflow\footnote{\url{https://stackoverflow.com/questions/2888817/footnotes-for-tables-in-latex}}。
+
+{\begin{longtable}[c]{c*{7}{r}}
+\caption[续表]{续表样例表。}
+\label{tab:example-table-continue}\\
+\toprule[1.5pt]
+ \multicolumn{1}{c}{年龄} & 性别 & \multicolumn{1}{c}{cp} & \multicolumn{1}{c}{静息血压} & \multicolumn{1}{c}{chol}
+& \multicolumn{1}{c}{空腹血糖>} & \multicolumn{1}{c}{restecg} & \multicolumn{1}{c}{thalachh} \\
+\multicolumn{1}{c}{(岁)} & & \multicolumn{1}{c}{胸痛型}&
+\multicolumn{1}{c}{毫米汞柱}& \multicolumn{1}{c}{胆固醇}& \multicolumn{1}{c}{
+   120 mg/dl}& 静息状态 & 最大心率 \\\midrule[1pt]
+\endfirsthead
+\multicolumn{8}{c}{续表~\thetable\hskip1em 续表样例表。}\\
+\toprule[1.5pt]
+ \multicolumn{1}{c}{年龄} & 性别 & \multicolumn{1}{c}{cp} & \multicolumn{1}{c}{静息血压} & \multicolumn{1}{c}{chol}
+& \multicolumn{1}{c}{空腹血糖>} & \multicolumn{1}{c}{restecg} & \multicolumn{1}{c}{thalachh} \\
+\multicolumn{1}{c}{(岁)} & & \multicolumn{1}{c}{胸痛型}&
+\multicolumn{1}{c}{毫米汞柱}& \multicolumn{1}{c}{胆固醇}& \multicolumn{1}{c}{
+   120 mg/dl}& 静息状态 & 最大心率 \\\midrule[1pt]
+\endhead
+\hline
+\multicolumn{8}{r}{续下页}
+\endfoot
+\endlastfoot
+63 & 1 & 3 & 145 & 233 & 1 & 0 & 150 \\
+37 & 1 & 2 & 130 & 250 & 0 & 1 & 187 \\
+41 & 0 & 1 & 130 & 204 & 0 & 0 & 172 \\
+56 & 1 & 1 & 120 & 236 & 0 & 1 & 178 \\
+57 & 0 & 0 & 120 & 354 & 0 & 1 & 163 \\
+57 & 1 & 0 & 140 & 192 & 0 & 1 & 148 \\
+56 & 0 & 1 & 140 & 294 & 0 & 0 & 153 \\
+44 & 1 & 1 & 120 & 263 & 0 & 1 & 173 \\
+52 & 1 & 2 & 172 & 199 & 1 & 1 & 162 \\
+57 & 1 & 2 & 150 & 168 & 0 & 1 & 174 \\
+54 & 1 & 0 & 140 & 239 & 0 & 1 & 160 \\
+48 & 0 & 2 & 130 & 275 & 0 & 1 & 139 \\
+49 & 1 & 1 & 130 & 266 & 0 & 1 & 171 \\
+64 & 1 & 3 & 110 & 211 & 0 & 0 & 144 \\
+\bottomrule[1.5pt]
+\end{longtable}
+\footnotesize 注：数据来源于Kaggle Heart Attack Analysis \& Prediction Data Set。}
+
+如需要注明表格中数据来源，则可使用类似的方式，见表~\ref{tab:example-table-source-foot}。
+
+\begin{table*}[htb]
+    \centering
+    \begin{minipage}[t]{0.55\linewidth} %
+        \caption[表格脚注样例表]{表格脚注样例表。表名可通过中括号添加缩略名。}
+        \label{tab:example-table-basic}
+        \begin{small}
+        \begin{tabular}{@{}lccccc@{}}
+         \toprule[1.5pt]
+         & \textbf{X} & \textbf{Y} & \textbf{Z} & \textbf{N} & \textbf{M} \\
+         \midrule[1pt]
+            默认        & 99.99 & 99.99 & 99.99 & 99.99\footnote{表格中的脚注1} & 99.99 \\
+          \quad w/o X   & 99.99 & 99.99 & 99.99 & 99.99 & 99.99 \\
+          \quad w/o Y   & 99.99 & 99.99 & 99.99 & 99.99 & 99.99 \\
+          \quad w/o Z   & 99.99\footnote{表格中的脚注2} & 99.99 & 99.99 & 99.99 & 99.99 \\
+          \quad w/o N   & 99.99 & 99.99 & 99.99 & 99.99 & 99.99 \\
+          \quad w/o M   & 99.99 & 99.99 & 99.99 & 99.99 & 99.99 \\
+          \bottomrule[1.5pt]
+        \end{tabular}
+        \end{small}
+    \end{minipage}
+\end{table*}
+
+\begin{table*}[htbp]
+   \centering
+   \caption[数据来源注释表]{表格数据来源注释样例表。}
+   \label{tab:example-table-source-foot}
+   \begin{minipage}[t]{0.9\textwidth}
+   \begin{small}
+   \begin{tabular}{@{}l|ccc|ccc@{}}
+   \toprule
+   \multirow{2}{*}{\textbf{Model}} & \multicolumn{3}{c|}{\textbf{数据集A}} & \multicolumn{3}{c}{\textbf{数据集B}} \\ \cmidrule(l){2-7} 
+    & \textbf{指标a}(\%) & \textbf{指标b}(\%) & \textbf{指标c} & \textbf{指标a} (\%) & \textbf{指标b}(\%) & \textbf{指标c} \\ \midrule
+    Devlin et al.\cite{devlin2018bert}      &99.99  & 99.99  & 99.99  &99.99  & 99.99  & 99.99  \\
+    Yang et al.\cite{yang2019xlnet}      &99.99  & 99.99  & 99.99  &99.99  & 99.99  & 99.99  \\
+    \bottomrule
+   \end{tabular}\\[6pt]
+   \footnotesize 注：数据来源XXXXXX。\\
+   \end{small}
+   \end{minipage}
+\end{table*}
+
+当表格较大，不能在一页内打印时，可以“续表”的形式另页打印，可使用宏包\verb|longtable|实现，如表~\ref{tab:example-table-continue}。
+
+
+\subsection{图片样例}
+\label{sec:figure-example}
+
+\begin{figure}[htb]
+  \centering
+  \subfloat[吉林大学校徽]{
+    \label{sfig:example-fig-logo-fig}
+    \includegraphics[height=2.5cm]{figures/jlu-fig-logo}}\hspace{4em}
+  \subfloat[吉林大学中文校名]{
+    \label{sfig:example-fig-logo-text}
+    \includegraphics[height=2.5cm]{figures/jlu-text-logo}}
+  \caption{包含子图形的大图形}
+  \label{fig:example-fig-subfloat}
+\end{figure}
+
+当需要插入多个子图的时候，可以选用宏包\verb|subfloat|，不推荐使用
+\verb|subfigure| 和 \verb|subtable|。
+
+若使用继承于\verb|subfigure|的宏包，例如\verb|subfloat|、\verb|subfigure|等，则可直接使用引用\verb|\ref{sfig:xxxx}|引用子图label，如图~\ref{sfig:example-fig-logo-fig}。
+否则需要引用主图，再单独标注子图序号，以便符合学位论文要求。
+
+此外，与表格相反，图序和图名需要位于图片的下方。
+如果含有子图，每个子图需要具有相应的子图名。
+
+
+如果需要并排使用两个独立的图形，分别编排图序，则可使用\verb|minipage|，如图~\ref{fig:example-fig-abreast-1}和图~\ref{fig:example-fig-abreast-2}。
+
+\begin{figure}[htb]
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[height=2cm]{figures/jlu-fig-logo}
+  \caption{吉林大学校徽}
+  \label{fig:example-fig-abreast-1}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[height=2cm]{figures/jlu-text-logo}
+  \caption{吉林大学中文校名}
+  \label{fig:example-fig-abreast-2}
+\end{minipage}
+\end{figure}
+
+\section{公式}
+\label{sec:equation}
+
+公式使用通用\LaTeX{}规范即可。对于复杂公式需求，可使用\verb|amsmath|宏包结合Mathpix\footnote{\url{https://mathpix.com/}}等自动化识别工具。
+
+\begin{multline*}
+\int_a^b\biggl\{\int_a^b[f(x)^2g(y)^2+f(y)^2g(x)^2]
+ -2f(x)g(x)f(y)g(y)\,dx\biggr\}\,dy \\
+ =\int_a^b\biggl\{g(y)^2\int_a^bf^2+f(y)^2
+  \int_a^b g^2-2f(y)g(y)\int_a^b fg\biggr\}\,dy
+\end{multline*}
+
+上述公式来源于刘宝碇的《不确定规划》\cite{liu2003uncertain}。
+
+\section{参考文献}
+\label{sec:bibtex}
+
+参考文献使用\verb|gb7714-2015|bibstyle进行管理，具体引用命令与日常使用类似，
+例如\verb|\cite{}|。使用本模板之前，请先按照该仓库\footnote{\url{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}}，
+将相关bibstyle进行安装，或将其bst文件放入项目目录下直接使用。
