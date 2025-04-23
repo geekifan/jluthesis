@@ -17,7 +17,7 @@
 \RequirePackage{amsfonts,amssymb}
 \RequirePackage{graphicx}
 \RequirePackage{setspace}
-\RequirePackage[colorlinks,linkcolor=black,citecolor=black]{hyperref} 
+\RequirePackage[colorlinks,linkcolor=black,citecolor=black]{hyperref}
 \RequirePackage{algorithmicx,algorithm,algpseudocode}
 \RequirePackage{amsthm}
 \RequirePackage{caption}
@@ -83,22 +83,23 @@
         \newcommand{\HRule}{\rule{\linewidth}{1mm}}
         \quad \\[0.42cm]
         {\centering\includegraphics[width = 0.8\textwidth]{figures/logo.png}\\[0.77cm] }
-        \center 
+        \center
         \songti \zihao{-0} \bfseries 本科生毕业论文（设计）  \\[2.58cm]
 
         \songti \zihao{3} \bfseries 中文题目 \hspace{-0.4cm} \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@ctitlef}}  \\[3pt]
                                     \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@ctitles}}  \\
         \songti \zihao{3} \bfseries 英文题目 \hspace{-0.4cm} \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitlef}}  \\[3pt]
-                                    \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitles}}  \\[2.6cm]
-        
+                                    \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitles}}  \\[3pt]
+                                    \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitlet}}  \\[2.6cm]
+
         \songti \zihao{3} \bfseries 学生姓名            \underline{\makebox[11cm]{\cover@author}}  \\[3pt]
         \songti \zihao{3} \bfseries 学\hspace{2em}号    \underline{\makebox[11cm]{\cover@studentid}}  \\[3pt]
         \songti \zihao{3} \bfseries 学\hspace{2em}院    \underline{\makebox[11cm]{\cover@school}}  \\[3pt]
         \songti \zihao{3} \bfseries 专\hspace{2em}业    \underline{\makebox[11cm]{\cover@major}}  \\[3pt]
         \songti \zihao{3} \bfseries 指导教师            \underline{\makebox[11cm]{\cover@mentor}} \\[1.3cm]
-        
+
         {\songti \zihao{3} \bfseries \cover@time}
-        \vfill 
+        \vfill
     \end{titlepage}
 }
 
@@ -111,7 +112,7 @@
 
 
 % \setlength{\topmargin}{-5mm} % 页眉顶端距离页边距的距离
-\setlength{\headheight}{10mm}
+\setlength{\headheight}{5mm}
 \setlength{\headsep}{5mm}
 \setlength{\footskip}{5mm}
 
@@ -154,6 +155,11 @@
 %                摘要
 %-------------------------------------------------------------------------------
 
+\newcommand{\baseabstract}[2]{
+    \chapter*{\zihao{4} \songti \bfseries #1} % 摘要标题四号字
+    \zihao{-4} \songti #2 % 摘要正文小四号字
+}
+
 % 中文摘要
 \newcommand{\cabstract}[2]{
     \pagestyle{style@empty}
@@ -167,9 +173,9 @@
 
     \zihao{-4} \songti #1 % 摘要正文小四号字
     \bigskip
-    
+
     \noindent \zihao{4} \songti {\bfseries {\abstract@ckeywords}}
-    
+
     \zihao{-4} \songti #2
 }
 
@@ -197,9 +203,6 @@
     
     \zihao{-4} \songti #2
 }
-
-
-
 
 %-------------------------------------------------------------------------------
 %                目录
@@ -235,26 +238,26 @@
 \ctexset {
     chapter = {
         format = \centering \zihao{3} \songti \bfseries,
-        titleformat = \hspace{0pt},
-        beforeskip = {-15pt},
-        afterskip = {5pt},
+        titleformat = \hspace{0pt}, % -10pt
+        beforeskip = {-20pt}, % -15pt
+        afterskip = {25pt}, % 5pt
         number = \arabic{chapter},
         pagestyle = style@normal
     },
     section = {
         format = \raggedright \zihao{4} \songti \bfseries,
-        titleformat = \hspace{0pt},
-        beforeskip = {0pt},
-        afterskip = {5pt},
+        titleformat = \hspace{0pt}, % -10pt
+        beforeskip = {20pt}, % 0pt
+        afterskip = {20pt}, % 5pt
     },
     subsection = {
-        format = \raggedright \zihao{4} \songti \bfseries,
-        titleformat = \hspace{0pt},
-        afterskip = {5pt},
+        format = \raggedright \zihao{-4} \songti \bfseries,
+        titleformat = \hspace{0pt}, % -10pt
+        afterskip = {15pt}, % 5pt
     },
     subsubsection = {
         format = \zihao{-4} \songti,
-        afterskip = {0pt},
+        afterskip = {15pt}, % 0pt
     }
 }
 
@@ -264,11 +267,12 @@
 
 \DeclareCaptionFont{heiti}{\heiti}
 \renewcommand{\thefigure}{\thechapter-\arabic{figure}} % 图标题格式为章节号-图号
-\captionsetup[figure]{font={small}, textfont=heiti, labelfont=heiti, labelsep=quad} % 图标题为黑体
+\captionsetup[figure]{textfont=heiti, labelfont=heiti, labelsep=quad} % 图标题为黑体
 \renewcommand{\thetable}{\thechapter-\arabic{table}}    % 表标题格式为章节号-表号
-\captionsetup[table]{font={small}, textfont=heiti, labelfont=heiti, labelsep=quad}  % 表标题为黑体
+\captionsetup[table]{textfont=heiti, labelfont=heiti, labelsep=quad}  % 表标题为黑体
 
 
+\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}
 
 
 %-------------------------------------------------------------------------------
@@ -290,14 +294,12 @@
 %                参考文献
 %-------------------------------------------------------------------------------
 \newcommand{\reference}[1]{
+    \setlength{\baselineskip}{10.5pt}
     \chapter*{\zihao{3} \songti 参考文献}
     \addcontentsline{toc}{chapter}{参考文献}
     % \markboth{\zihao{-5} \songti 参考文献}{\zihao{-5} \songti 参考文献} % 定制页眉
     \vspace{0.5cm}
-    {
-        \setlength{\bibsep}{0pt}
-        \songti \zihao{5} #1
-    }
+    {\songti \zihao{5} #1}
 }
 
 \endinput
