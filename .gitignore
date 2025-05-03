@@ -1,1 +1,18 @@
+# LaTeX 编译生成文件
+*.aux
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.xdv
+*.bbl
+*.blg
+*.bcf
+
+# 系统生成文件
 .DS_Store
+.idea/
