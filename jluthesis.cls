@@ -95,6 +95,7 @@
                                     % \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitlet}}  
                                     \\[2.3cm]
 
+
         \songti \zihao{3} \bfseries 学生姓名            \underline{\makebox[11cm]{\cover@author}}  \\[3pt]
         \songti \zihao{3} \bfseries 学\hspace{2em}号    \underline{\makebox[11cm]{\cover@studentid}}  \\[3pt]
         \songti \zihao{3} \bfseries 学\hspace{2em}院    \underline{\makebox[11cm]{\cover@school}}  \\[3pt]
