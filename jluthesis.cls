@@ -82,22 +82,25 @@
     \begin{titlepage}
         \newcommand{\HRule}{\rule{\linewidth}{1mm}}
         \quad \\[0.42cm]
-        {\centering\includegraphics[width = 0.8\textwidth]{figures/logo.png}\\[0.77cm] }
+        {\centering\includegraphics[width = 0.89 \textwidth]{figures/logo.png}\\[0.77cm] }
         \center
-        \songti \zihao{-0} \bfseries 本科生毕业论文（设计）  \\[2.58cm]
+        \songti \zihao{-0} \bfseries 本科生毕业论文（设计）  \\[2.43cm]
 
         \songti \zihao{3} \bfseries 中文题目 \hspace{-0.4cm} \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@ctitlef}}  \\[3pt]
                                     \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@ctitles}}  \\
         \songti \zihao{3} \bfseries 英文题目 \hspace{-0.4cm} \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitlef}}  \\[3pt]
-                                    \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitles}}  \\[3pt]
+                                    \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitles}}  
+                                    % \\[3pt]
                                     % 注释掉以下这行, 因为 \cover@etitlet 未定义. 如果要使用第三行英文标题, 建议在 jluthesis.cfg 中定义 \cover@etitlet.
-                                    % \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitlet}}  \\[2.6cm]
+                                    % \hspace{2cm}    \underline{\makebox[11cm]{\songti \zihao{3} \bfseries \cover@etitlet}}  
+                                    \\[2.3cm]
+
 
         \songti \zihao{3} \bfseries 学生姓名            \underline{\makebox[11cm]{\cover@author}}  \\[3pt]
         \songti \zihao{3} \bfseries 学\hspace{2em}号    \underline{\makebox[11cm]{\cover@studentid}}  \\[3pt]
         \songti \zihao{3} \bfseries 学\hspace{2em}院    \underline{\makebox[11cm]{\cover@school}}  \\[3pt]
         \songti \zihao{3} \bfseries 专\hspace{2em}业    \underline{\makebox[11cm]{\cover@major}}  \\[3pt]
-        \songti \zihao{3} \bfseries 指导教师            \underline{\makebox[11cm]{\cover@mentor}} \\[1.3cm]
+        \songti \zihao{3} \bfseries 指导教师            \underline{\makebox[11cm]{\cover@mentor}} \\[1.9cm]
 
         {\songti \zihao{3} \bfseries \cover@time}
         \vfill
